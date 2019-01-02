@@ -1,8 +1,8 @@
+language: java
 branches:
   only:
   - master
 if: tag IS present
-language: java
 install: wget http://central.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.3/swagger-codegen-cli-3.0.3.jar -O swagger-codegen-cli.jar
 script:
   - lang=java && java -jar swagger-codegen-cli.jar generate -i petstore.json -l $lang -o $lang
