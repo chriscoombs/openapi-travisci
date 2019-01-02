@@ -1,0 +1,18 @@
+language: java
+branches:
+  only:
+  - master
+before_script:
+  - wget http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar -O swagger-codegen-cli.jar
+jobs:
+  include:
+    - stage: build
+      script: java -jar swagger-codegen-cli.jar generate -i petstore.yaml -o outputs -l php
+      script: java -jar swagger-codegen-cli.jar generate -i petstore.yaml -o outputs -l java
+    - stage: release
+      deploy:
+        provider: releases
+        api_key: $GITHUB_OAUTH_TOKEN
+        skip_cleanup: true
+        on:
+          tags: true
