@@ -4,6 +4,7 @@ branches:
   - master
 before_script:
   - wget http://central.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.3/swagger-codegen-cli-3.0.3.jar -O swagger-codegen-cli.jar
+install: true
 jobs:
   include:
     - stage: build
