@@ -7,8 +7,8 @@ before_script:
 jobs:
   include:
     - stage: build
-      script: lang=java && java -jar ~/Downloads/swagger-codegen-cli-3.0.3.jar generate -i petstore.json -l $lang -o $lang
-      script: lang=aspnetcore && java -jar ~/Downloads/swagger-codegen-cli-3.0.3.jar generate -i petstore.json -l $lang -o $lang
+      script: lang=java && java -jar swagger-codegen-cli.jar generate -i petstore.json -l $lang -o $lang
+      script: lang=aspnetcore && java -jar swagger-codegen-cli.jar generate -i petstore.json -l $lang -o $lang
     - stage: release
       deploy:
         provider: releases
