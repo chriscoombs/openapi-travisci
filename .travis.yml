@@ -3,12 +3,12 @@ branches:
   only:
   - master
 before_script:
-  - wget http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar -O swagger-codegen-cli.jar
+  - wget http://central.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.3/swagger-codegen-cli-3.0.3.jar -O swagger-codegen-cli.jar
 jobs:
   include:
     - stage: build
-      script: java -jar swagger-codegen-cli.jar generate -i petstore.yaml -o outputs -l php
-      script: java -jar swagger-codegen-cli.jar generate -i petstore.yaml -o outputs -l java
+      script: lang=java && java -jar ~/Downloads/swagger-codegen-cli-3.0.3.jar generate -i petstore.json -l $lang -o $lang
+      script: lang=aspnetcore && java -jar ~/Downloads/swagger-codegen-cli-3.0.3.jar generate -i petstore.json -l $lang -o $lang
     - stage: release
       deploy:
         provider: releases
