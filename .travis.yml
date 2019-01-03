@@ -9,15 +9,15 @@ script:
   - lang=aspnetcore && java -jar swagger-codegen-cli.jar generate -i petstore.json -l $lang -o $lang-client
 before_deploy:
   - ls -lrt
-  - lang=java zip -r $lang-client.zip $lang-client
-  - lang=aspnetcore zip -r $lang-client.zip $lang-client
+  - lang=java && zip -r $lang-client.zip $lang-client
+  - lang=aspnetcorei && zip -r $lang-client.zip $lang-client
   - ls -lrt
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
   skip_cleanup: true
   file:
-    - "java-client.zip"
+    - java-client.zip
     - aspnetcore-client.zip
   on:
     tags: true
