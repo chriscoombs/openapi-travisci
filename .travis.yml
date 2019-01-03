@@ -10,7 +10,7 @@ script:
 before_deploy:
   - ls -lrt
   - lang=java && zip -r $lang-client.zip $lang-client
-  - lang=aspnetcorei && zip -r $lang-client.zip $lang-client
+  - lang=aspnetcore && zip -r $lang-client.zip $lang-client
   - ls -lrt
 deploy:
   provider: releases
