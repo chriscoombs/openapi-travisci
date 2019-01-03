@@ -15,5 +15,8 @@ deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
   skip_cleanup: true
+  file:
+    - java-client.zip
+    - aspnetcore.zip
   on:
     tags: true
