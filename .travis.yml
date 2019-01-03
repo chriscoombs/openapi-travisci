@@ -1,7 +1,7 @@
 language: java
 branches:
   only:
-  - master
+    - /^v\d.\d.\d$/
 if: tag IS present
 install: wget http://central.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.3/swagger-codegen-cli-3.0.3.jar -O swagger-codegen-cli.jar
 script:
