@@ -9,7 +9,7 @@ script:
   - lang=aspnetcore && java -jar swagger-codegen-cli.jar generate -i petstore.json -l $lang -o $lang
 deploy:
   provider: releases
-  api_key: $GITHUB_OAUTH_TOKEN
+  api_key: $GITHUB_TOKEN
   skip_cleanup: true
   on:
     tags: true
