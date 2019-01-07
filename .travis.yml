@@ -1,4 +1,5 @@
 language: node_js
+node_js:
   - lts/*
 before_deploy:
   - wget http://central.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.3/swagger-codegen-cli-3.0.3.jar -O swagger-codegen-cli.jar
