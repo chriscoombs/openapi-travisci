@@ -1,17 +1,10 @@
-language: java
-branches:
-  only:
-    - /^v\d.\d.\d$/
-if: tag IS present
-install: wget http://central.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.3/swagger-codegen-cli-3.0.3.jar -O swagger-codegen-cli.jar
-script:
+language: node_js
+before_deploy:
+  - wget http://central.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.3/swagger-codegen-cli-3.0.3.jar -O swagger-codegen-cli.jar
   - lang=java && java -jar swagger-codegen-cli.jar generate -i petstore.json -l $lang -o $lang-client
   - lang=aspnetcore && java -jar swagger-codegen-cli.jar generate -i petstore.json -l $lang -o $lang-client
-before_deploy:
-  - ls -lrt
   - lang=java && zip -r $lang-client.zip $lang-client
   - lang=aspnetcore && zip -r $lang-client.zip $lang-client
-  - ls -lrt
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN

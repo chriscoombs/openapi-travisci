@@ -1,0 +1,17 @@
+{
+  "name": "",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "node_modules/ibm-openapi-validator/src/cli-validator/index.js petstore.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ibm-openapi-validator": "^0.2.0"
+  }
+}
