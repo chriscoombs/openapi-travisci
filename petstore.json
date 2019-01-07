@@ -150,9 +150,14 @@
         }
       },
       "Pets": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/Pet"
+        "type": "object",
+        "properties": {
+          "pets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Pet"
+            }
+          }
         }
       },
       "Error": {
